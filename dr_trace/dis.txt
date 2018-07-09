@@ -1,0 +1,100 @@
+ 20           0 LOAD_FAST                1 (pages)
+              3 POP_JUMP_IF_TRUE        18
+
+ 21           6 LOAD_GLOBAL              0 (set)
+              9 CALL_FUNCTION            0
+             12 STORE_FAST               2 (pagenums)
+             15 JUMP_FORWARD            12 (to 30)
+
+ 23     >>   18 LOAD_GLOBAL              0 (set)
+             21 LOAD_FAST                1 (pages)
+             24 CALL_FUNCTION            1
+             27 STORE_FAST               2 (pagenums)
+
+ 25     >>   30 LOAD_GLOBAL              1 (StringIO)
+             33 CALL_FUNCTION            0
+             36 STORE_FAST               3 (output)
+
+ 26          39 LOAD_GLOBAL              2 (PDFResourceManager)
+             42 CALL_FUNCTION            0
+             45 STORE_FAST               4 (manager)
+
+ 27          48 LOAD_GLOBAL              3 (TextConverter)
+             51 LOAD_FAST                4 (manager)
+             54 LOAD_FAST                3 (output)
+             57 LOAD_CONST               1 ('laparams')
+             60 LOAD_GLOBAL              4 (LAParams)
+             63 CALL_FUNCTION            0
+             66 CALL_FUNCTION          258
+             69 STORE_FAST               5 (converter)
+
+ 28          72 LOAD_GLOBAL              5 (PDFPageInterpreter)
+             75 LOAD_FAST                4 (manager)
+             78 LOAD_FAST                5 (converter)
+             81 CALL_FUNCTION            2
+             84 STORE_FAST               6 (interpreter)
+
+ 30          87 LOAD_GLOBAL              6 (file)
+             90 LOAD_FAST                0 (fname)
+             93 LOAD_CONST               2 ('rb')
+             96 CALL_FUNCTION            2
+             99 STORE_FAST               7 (infile)
+
+ 31         102 SETUP_LOOP              39 (to 144)
+            105 LOAD_GLOBAL              7 (PDFPage)
+            108 LOAD_ATTR                8 (get_pages)
+            111 LOAD_FAST                7 (infile)
+            114 LOAD_FAST                2 (pagenums)
+            117 CALL_FUNCTION            2
+            120 GET_ITER            
+        >>  121 FOR_ITER                19 (to 143)
+            124 STORE_FAST               8 (page)
+
+ 32         127 LOAD_FAST                6 (interpreter)
+            130 LOAD_ATTR                9 (process_page)
+            133 LOAD_FAST                8 (page)
+            136 CALL_FUNCTION            1
+            139 POP_TOP             
+            140 JUMP_ABSOLUTE          121
+        >>  143 POP_BLOCK           
+
+ 33     >>  144 LOAD_FAST                7 (infile)
+            147 LOAD_ATTR               10 (close)
+            150 CALL_FUNCTION            0
+            153 POP_TOP             
+
+ 34         154 LOAD_FAST                5 (converter)
+            157 LOAD_ATTR               10 (close)
+            160 CALL_FUNCTION            0
+            163 POP_TOP             
+
+ 35         164 LOAD_FAST                3 (output)
+            167 LOAD_ATTR               11 (getvalue)
+            170 CALL_FUNCTION            0
+            173 STORE_FAST               9 (text)
+
+ 36         176 LOAD_FAST                3 (output)
+            179 LOAD_ATTR               10 (close)
+            182 POP_TOP             
+
+ 37         183 LOAD_CONST               3 (' --------------- ')
+            186 PRINT_ITEM          
+            187 PRINT_NEWLINE       
+
+ 38         188 LOAD_GLOBAL             12 (SonicDF)
+            191 CALL_FUNCTION            0
+            194 LOAD_ATTR               13 (checkType)
+            197 LOAD_FAST                9 (text)
+            200 LOAD_GLOBAL             14 (str)
+            203 CALL_FUNCTION            2
+            206 PRINT_ITEM          
+            207 PRINT_NEWLINE       
+
+ 39         208 LOAD_GLOBAL             15 (write_data)
+            211 LOAD_FAST                9 (text)
+            214 LOAD_FAST                0 (fname)
+            217 CALL_FUNCTION            2
+            220 POP_TOP             
+
+ 40         221 LOAD_FAST                9 (text)
+            224 RETURN_VALUE        

@@ -1,0 +1,33 @@
+ --------------- 
+True
+/Users/iain/Desktop/AckerMills2006
+After writing
+trying to run scsynth from : /Applications/SuperCollider.app/Contents/Resources
+('/notify', 1)
+('/n_set', 1001, 'nodeID', 1001)
+1001 < created node id
+('/n_set', 1001, 'defpath', '/Users/iain/Desktop/synthdefs/sine.scsyndef')
+('/d_load', '/Users/iain/Desktop/synthdefs/sine.scsyndef')
+('/n_set', 1001, 'position', 0)
+('/s_new', 'sine', 1001, 1, 0)
+Note is 879.999999997
+('/n_set', 1001, 'freq', 879.9999999970569)
+('/n_set', 1001, 'position', 0)
+('/n_free', 1001)
+16516
+<type 'file'>
+ --------------- 
+True
+/Users/iain/Desktop/AckerMills2006
+After writing
+trying to run scsynth from : /Applications/SuperCollider.app/Contents/Resources
+('/notify', 1)
+('/n_set', 1001, 'nodeID', 1001)
+1001 < created node id
+('/n_set', 1001, 'defpath', '/Users/iain/Desktop/synthdefs/sine.scsyndef')
+('/s_new', 'sine', 1001, 1, 0)
+Note is 879.999999997
+('/n_set', 1001, 'freq', 879.9999999970569)
+('/n_set', 1001, 'position', 0)
+('/n_free', 1001)
+16516
